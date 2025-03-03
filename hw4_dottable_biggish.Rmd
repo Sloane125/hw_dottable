@@ -21,7 +21,6 @@ nycdata <- fread("~/hw_dottable/nycdata.csv")
 
 Use and show data.table code to select the variables year, month, day, and hour from the imported flights data.
 ```{r}
-# Use data.table to select year, month, day, and hour columns
 nycdata[, .(year, month, day, hour)]
 ```
 
@@ -29,7 +28,13 @@ nycdata[, .(year, month, day, hour)]
 
 Use and show data.table code to produce a table that shows a carrier of DL, and origin of JFK and a destination of SEA.
 ```{r}
-# data.table method
 nycdata[carrier == "DL" & origin == "JFK" & dest == "SEA"]
+```
+
+#### Question 3:
+
+Use and show data.table code to produce a table that shows a carrier of UA, a month of March, and an airtime that is below 330.
+```{r}
+nycdata[carrier == "UA" & month == 3 & air_time < 330]
 ```
 
