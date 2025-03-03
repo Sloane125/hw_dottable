@@ -21,27 +21,36 @@ nycdata <- fread("~/hw_dottable/nycdata.csv")
 
 Use and show data.table code to select the variables year, month, day, and hour from the imported flights data.
 ```{r}
-nycdata[, .(year, month, day, hour)]
+head(nycdata[, .(year, month, day, hour)], 6)
 ```
 
 #### Question 2:
 
 Use and show data.table code to produce a table that shows a carrier of DL, and origin of JFK and a destination of SEA.
 ```{r}
-nycdata[carrier == "DL" & origin == "JFK" & dest == "SEA"]
+head(nycdata[carrier == "DL" & origin == "JFK" & dest == "SEA"], 6)
 ```
 
 #### Question 3:
 
 Use and show data.table code to produce a table that shows a carrier of UA, a month of March, and an airtime that is below 330.
 ```{r}
-nycdata[carrier == "UA" & month == 3 & air_time < 330]
+head(nycdata[carrier == "UA" & month == 3 & air_time < 330], 6)
 ```
 
 #### Question 4:
 
 Use and show tidyverse code to produce a table that shows a carrier of UA, a month of March, and an airtime that is below 330.
 ```{r}
-nycdata %>% filter(carrier == "UA" & month == 3 & air_time < 330)
+nycdata %>% filter(carrier == "UA" & month == 3 & air_time < 330) %>% head(6)
 ```
+
+#### Question 5:
+
+Use the data.table method to add a variable called speed that is the average air speed of the plane in miles per hour.
+```{r}
+nycdata[, c("speed") := .(distance / (air_time / 60))]
+head(nycdata, 6)
+```
+
 
