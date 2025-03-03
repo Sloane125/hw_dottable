@@ -53,4 +53,10 @@ nycdata[, c("speed") := .(distance / (air_time / 60))]
 head(nycdata, 6)
 ```
 
+#### Question 6:
+
+Use the tidyverse method to add a variable called speed that is the average air speed of the plane in miles per hour.
+```{r}
+nycdata %>% mutate(speed = distance / (air_time / 60)) %>% head(6)
+```
 
