@@ -60,3 +60,16 @@ Use the tidyverse method to add a variable called speed that is the average air 
 nycdata %>% mutate(speed = distance / (air_time / 60)) %>% head(6)
 ```
 
+#### Question 7:
+
+Show and use coding to change the carrier abbreviation of UA to UnitedAir.
+```{r}
+# data.table method
+nycdata_newname <- nycdata[carrier == "UA", carrier := "UnitedAir"]
+sort(unique(nycdata_newname$carrier))
+
+# tidyverse method
+nycdata %>% mutate(carrier = case_match(carrier, "UA" ~ "UnitedAir", .default = carrier)) %>% filter(carrier == "UnitedAir") %>% head(6)
+```
+
+
