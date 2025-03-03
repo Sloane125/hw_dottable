@@ -1,0 +1,35 @@
+---
+title: "Homework 4: Biggish Data dottable"
+author: "Sloane Johns"
+date: "2025-03-04"
+output:
+  pdf_document: default
+  pdf: default
+---
+
+```{r, message=FALSE}
+# libraries
+library(tidyverse)
+library(dplyr)
+library(data.table)
+
+# data
+nycdata <- fread("~/hw_dottable/nycdata.csv")
+```
+
+#### Question 1:
+
+Use and show data.table code to select the variables year, month, day, and hour from the imported flights data.
+```{r}
+# Use data.table to select year, month, day, and hour columns
+nycdata[, .(year, month, day, hour)]
+```
+
+#### Question 2:
+
+Use and show data.table code to produce a table that shows a carrier of DL, and origin of JFK and a destination of SEA.
+```{r}
+# data.table method
+nycdata[carrier == "DL" & origin == "JFK" & dest == "SEA"]
+```
+
