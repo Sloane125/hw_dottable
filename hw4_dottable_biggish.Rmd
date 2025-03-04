@@ -1,6 +1,6 @@
 ---
 title: "Homework 4: Biggish Data dottable"
-author: "Sloane Johns"
+author: "Sloane Johns and Avery Rathman"
 date: "2025-03-04"
 output:
   pdf_document: default
@@ -69,7 +69,8 @@ nycdata_newname <- nycdata[carrier == "UA", carrier := "UnitedAir"]
 sort(unique(nycdata_newname$carrier))
 
 # tidyverse method
-nycdata %>% mutate(carrier = case_match(carrier, "UA" ~ "UnitedAir", .default = carrier)) %>% filter(carrier == "UnitedAir") %>% head(6)
+nycdata %>% mutate(carrier = case_match(carrier, "UA" ~ "UnitedAir", .default = carrier)) %>% 
+  filter(carrier == "UnitedAir") %>% head(6)
 ```
 
 
